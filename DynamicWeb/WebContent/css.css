@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+input { /* element Selector */
+	border: 0;
+	border-bottom: 1px solid black;
+}
+
+#id_text { /* id Selector */
+	outline: 0;
+}
+
+.class_text { /* class Selector */
+	background: transparent;
+}
+/*
+descendant selector (space)
+child selector (>)
+adjacent sibling selector (+)
+general sibling selector (~)
+pseudo-class (:)
+pseudo-element (::)
+*/
+pre {
+	outline: 1px solid #ccc;
+	padding: 5px;
+	margin: 5px;
+}
+
+.string {
+	color: green;
+}
+
+.number {
+	color: darkorange;
+}
+
+.boolean {
+	color: blue;
+}
+
+.null {
+	color: magenta;
+}
+
+.key {
+	color: red;
+}

@@ -1,0 +1,9 @@
+{
+	"_string":"string",
+	"_number":3.3,
+	"_bollean":true,
+	"_array":["A","B","C"],
+	"_object":{"D":"D"},
+	"_null":null,
+	"_statement": "alert('_function');"
+}

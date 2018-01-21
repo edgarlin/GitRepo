@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>html title</title>
+<link rel="stylesheet" type="text/css" href="css.css">
+<meta charset="UTF-8">
+<meta http-equiv="cache-control" content="no-cache" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js.js"></script>
+<script>
+	var html = new function() {
+		return {
+			init : function() {
+				$('#id_text').val('value_text');
+				$('#id_button')
+						.click(
+								function() {
+									var xhttp = new XMLHttpRequest();
+									xhttp.onreadystatechange = function() {
+										if (this.readyState == 4
+												&& this.status == 200) {
+											var _obj = JSON
+													.parse(this.responseText);
+											var txt = "<table border='1'>"
+											for (o in _obj) {
+												txt += "<tr><td>" + o
+														+ "</td><td>" + _obj[o]
+														+ "</td><td>"
+														+ typeof (_obj[o])
+														+ "</td></tr>";
+											}
+										}
+										txt += "</table>";
+										var strObj = JSON.stringify(_obj, null,
+												4);
+										//$('#id_div').html(txt);
+										$('#id_pre').html(
+												syntaxHighlight(strObj));
+										//alert(_obj["_statement"]);
+										//eval(_obj["_statement"]);
+									}
+									xhttp.open("GET", "ajax_json.txt", true);
+									xhttp.send();
+								});
+			}
+		}
+	};
+	$(html.init)
+</script>
+</head>
+<body>
+	<form action="ClassName" method="post">
+		<input type="text" id="id_text" name="name_text" class="class_text"></input>
+		<button type="submit">submit</button>
+		<hr>
+		<button type="button" id="id_button">ajax</button>
+		<pre id="id_pre"></pre>
+		<div id="id_div"></div>
+	</form>
+</body>
+</html>
